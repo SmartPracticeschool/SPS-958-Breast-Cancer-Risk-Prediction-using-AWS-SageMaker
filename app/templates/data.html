@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Sample Form</title>
+    <style>
+        .brest
+        {
+            width:300px;
+            height:25px;
+            background-color:#fffbfc;
+            border-style: ridge;
+            border-color:gray;
+            border-radius:6px;
+        }
+        body
+        {
+            font-family:sans-serif;
+            background-image: url('{{ url_for('static', filename='back.png') }}');
+        }
+        #sub
+        {
+            width:200px;
+            height:25px;
+            background-color:#9f6cff;
+            border-style: ridge;
+            border-color:gray;
+            border-radius:6px;
+        }
+    </style>
+</head>
+<body style="background-color:#575143">
+    <center>
+        <h1 style="color:red;">Breast Cancer Risk Prediction</h1>
+        <div style="background-color:#a8a883;">
+         <br/>
+        {% if result %}
+        <p style="color:blue;font-size:30px;">  Result: {{result}}</p>
+        <p style="color:red;font-size:20px;">{{sug}}</p>
+        {% endif %}
+        {% if err_msg %}
+        <p style="color:red;font-size:15px;">{{err_msg}}</p>
+        {% endif %}
+        <br/>
+        <form method="post" action="/">
+            <input type="text" name="a" class="brest" placeholder="   Enter Radius Mean" required><br/><br/>
+            <input type="text" name="b" class="brest" placeholder="   Enter Perimeter " required><br/><br/>
+            <input type="text" name="c" class="brest" placeholder="   Enter Area Mean" required><br/><br/>
+            <input type="text" name="d" class="brest" placeholder="   Enter Concave Point Mean" required><br/><br/>
+            <input type="text" name="e" class="brest" placeholder="   Enter Radius Worst" required><br/><br/>
+            <input type="text" name="f" class="brest" placeholder="   Enter Perimeter Worst" required><br/><br/>
+            <input type="text" name="g" class="brest" placeholder="   Enter Area Worst" required><br/><br/>
+            <input type="text" name="h" class="brest" placeholder="   Enter Concave Point Worst" required><br/><br/>
+            <input type="email" name="i" class="brest" placeholder="  Enter Email Id" required><br/><br/>
+            <input type="submit" value="Submit" id="sub">
+            <br/><br/><br/>
+        </form>
+        </div>
+    </center>
+</body>
+</html>
